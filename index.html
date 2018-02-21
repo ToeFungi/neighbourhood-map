@@ -8,9 +8,19 @@
   </head>
 
   <body>
+  <span class="btn-menu" data-bind="click: toggleNav">&#9776; MENU</span>
+
+    <div id="side-nav" class="sidenav">
+      <a class="close-btn"  data-bind="click: toggleNav">&times;</a>
+      <input type="text" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search">
+    </div>
+
     <div id="map"></div>
+
+    <script src="js/libs/knockout-3.4.2.js"></script>
+    <script src="js/locations.js"></script>
     <script src="js/app.js"></script>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=&v=3&callback=initMap"></script>
+            src="https://maps.googleapis.com/maps/api/js?key=&v=3&callback=startApp"></script>
   </body>
 </html>
