@@ -63,8 +63,10 @@ function AppViewModel() {
         fetch(apiUrl, {
         	method: 'get'
 		}).then((resp) => {
-			return resp.json()
+			return resp.json();
         }).then((evt) => {
+            this.infoWindow.setContent(`<h4>${this.infoWindow.marker.title}</h4><p>${this.infoWindow.marker.position.lat()}, ${this.infoWindow.marker.position.lng()}</p>`);
+
         	if(evt.response.venues.length === 0) throw Error('Foursquare has no information of this place.');
 
             let venue = evt.response.venues.filter((venue) => {
@@ -86,7 +88,6 @@ function AppViewModel() {
 
         	this.updateInfoWindow(obj);
 		}).catch((err) => {
-            this.infoWindow.close();
 			alert(err);
 		});
 	};
