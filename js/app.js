@@ -54,8 +54,8 @@ function AppViewModel() {
 	};
 
 	this.getFoursquareData = () => {
-		this.clientId = '';
-		this.clientSecret = '';
+		this.clientId = 'Q44UCWZHNTBACXILOCW2VWKDZIEOFFFYJHE2PKHF4YGA21BD';
+		this.clientSecret = 'NL3QNYHNQABL0A4DVHQODX2JTSAKR4AIJCH4AEG5YKURRCDP';
 
 		let marker = this.infoWindow.marker;
         let apiUrl = `https://api.foursquare.com/v2/venues/search?ll=${marker.position.lat()},${marker.position.lng()}&client_id=${this.clientId}&client_secret=${this.clientSecret}&query=${marker.title}&v=20180224&m=foursquare`;
@@ -76,14 +76,13 @@ function AppViewModel() {
             let obj = {};
 
             obj.title = venue.name;
+            obj.category = venue.categories.length > 0 ? obj.category = venue.categories[0].name : '';
             obj.street = venue.location.formattedAddress[0] ? venue.location.formattedAddress[0] : '';
             obj.city = venue.location.formattedAddress[1] ? venue.location.formattedAddress[1] : '' ;
             obj.zip = venue.location.formattedAddress[3] ? venue.location.formattedAddress[3] : '';
             obj.country = venue.location.formattedAddress[4] ? venue.location.formattedAddress[4] : '';
             obj.lat = venue.location.lat;
             obj.lng = venue.location.lng;
-
-            if(venue.categories.length > 0) obj.category = venue.categories[0].name;
 
         	this.updateInfoWindow(obj);
 		}).catch((err) => {
