@@ -33,7 +33,7 @@ let locations = [
 	},
 	{
 		id: 5,
-		title: 'The Church of the Holy Spirit',
+		title: 'Church of the Holy Spirit',
 		location: {
 			lat: -34.0788875,
 			lng: 18.4545959
