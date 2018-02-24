@@ -100,7 +100,8 @@ function AppViewModel() {
 			<p>${obj.city}</p>
 			<p>${obj.zip}</p>
 			<p>${obj.country}</p>
-			<p>${obj.lat}, ${obj.lng}</p>`);
+			<p>${obj.lat}, ${obj.lng}</p>
+			<p>Powered by Foursquare</p>`);
 	};
 
 	this.getMarkerData = (markerId) => {
