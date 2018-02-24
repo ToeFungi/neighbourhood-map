@@ -3,6 +3,7 @@ function AppViewModel() {
 	let self = this;
 
 	this.searchOption = ko.observable("");
+	this.filteredLocations = ko.observable(locations);
 
 	this.initMap = function() {
 		map = new google.maps.Map(document.getElementById('map'), {
@@ -13,6 +14,14 @@ function AppViewModel() {
 
 		this.initMarkers();
 	};
+
+    this.searchOption.subscribe((search) => {
+    	let x = locations.filter((location) => {
+    		return location.title.toLowerCase().indexOf(search.toLowerCase()) > -1;
+		});
+        this.filteredLocations(x);
+    	console.log(this.filteredLocations);
+    });
 
 	this.initMarkers = function() {
 		locations.forEach((location) => {
@@ -27,7 +36,6 @@ function AppViewModel() {
 	};
 
 	this.toggleNav = function() {
-		console.log(this.searchOption());
 		(document.getElementById("side-nav").style.width === "100%") ?
 			document.getElementById("side-nav").style.width = "0" :
 			document.getElementById("side-nav").style.width = "100%";

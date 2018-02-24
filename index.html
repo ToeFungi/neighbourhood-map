@@ -13,6 +13,10 @@
     <div id="side-nav" class="sidenav">
       <a class="close-btn"  data-bind="click: toggleNav">&times;</a>
       <input type="text" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search">
+
+      <div class="locations" data-bind="foreach: filteredLocations">
+        <p data-bind="text: title"></p>
+      </div>
     </div>
 
     <div id="map"></div>
