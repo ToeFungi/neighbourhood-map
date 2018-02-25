@@ -134,6 +134,10 @@ function AppViewModel() {
             document.getElementById("side-nav").style.width = "100%";
 
     this.initMap();
+
+    this.mapLoadFailed = () => {
+        alert('Google Maps failed to load. Please try again later!');
+    };
 }
 
 function startApp() {
